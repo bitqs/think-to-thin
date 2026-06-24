@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Think to Thin：像天生瘦的人那样生活</title>
-<style>:root { --A:#1a7f37; --B:#9a6700; --C:#bc4c00; --D:#cf222e; }
-body { max-width: 46rem; margin: 0 auto; padding: 2rem; font: 16px/1.7 -apple-system, "PingFang SC", system-ui, sans-serif; color:#1f2328; }
-header .thesis { color:#57606a; font-style: italic; }
-#toc { background:#f6f8fa; padding:1rem 1.5rem; border-radius:8px; }
-.grade { display:inline-block; min-width:1.3em; text-align:center; border-radius:4px; color:#fff; font-weight:600; font-size:.8em; padding:0 .3em; }
+<style>/* bookwright published-book stylesheet — mobile-first, responsive, light+dark */
+:root {
+  --A:#1a7f37; --B:#9a6700; --C:#bc4c00; --D:#cf222e;
+  --ink:#1f2328; --muted:#57606a; --line:#d8dee4; --bg:#fffdfa; --card:#f6f8fa; --link:#0969da;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink:#e6edf3; --muted:#9198a1; --line:#30363d; --bg:#0d1117; --card:#161b22; --link:#4493f8;
+          --A:#3fb950; --B:#d29922; --C:#db6d28; --D:#f85149; }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(1.1rem, 4vw, 3rem);
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 clamp(16px, 2.6vw, 18px)/1.78 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+header { margin: 1rem 0 2.2rem; }
+h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); line-height: 1.25; letter-spacing: -.01em; margin: 0 0 .5rem; }
+header .thesis { color: var(--muted); font-style: italic; font-size: 1.02em; line-height: 1.6; margin: 0; }
+
+h2 { font-size: clamp(1.25rem, 4.5vw, 1.55rem); line-height: 1.3; margin: 2.6rem 0 .9rem; padding-top: .4rem; }
+section + section h2 { border-top: 1px solid var(--line); padding-top: 2rem; }
+h3 { font-size: 1.12rem; margin: 1.8rem 0 .6rem; }
+p { margin: 0 0 1.15rem; }
+strong { font-weight: 650; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+blockquote { margin: 1.2rem 0; padding: .2rem 0 .2rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+ul, ol { padding-left: 1.4rem; }
+li { margin: .3rem 0; }
+
+/* Table of contents */
+#toc { background: var(--card); border: 1px solid var(--line); padding: 1rem 1.3rem; border-radius: 12px; margin-bottom: 2.5rem; }
+#toc h2 { margin: 0 0 .5rem; border: 0; padding: 0; font-size: 1.05rem; color: var(--muted); }
+#toc ol { margin: 0; }
+#toc a { color: var(--ink); }
+
+/* Evidence grade badges */
+.grade { display: inline-block; min-width: 1.35em; text-align: center; border-radius: 5px; color: #fff;
+         font-weight: 700; font-size: .72em; padding: .05em .35em; vertical-align: .12em; }
 .grade-A{background:var(--A)} .grade-B{background:var(--B)} .grade-C{background:var(--C)} .grade-D{background:var(--D)}
-pre.mermaid { background:#fff; text-align:center; }
-sup.cite { font-size:.7em; line-height:0; }
-sup.cite a { color:#0969da; text-decoration:none; }
-#appendix-evidence { border-top:1px solid #d0d7de; margin-top:3rem; color:#57606a; font-size:.9em; }
-#appendix-evidence li { margin:.4rem 0; }
+
+/* Inline citation superscripts — tap-friendly */
+sup.cite { font-size: .72em; line-height: 0; white-space: nowrap; }
+sup.cite a { color: var(--link); padding: 0 .12em; }
+
+/* Diagrams */
+pre.mermaid { background: transparent; text-align: center; margin: 1.6rem 0; overflow-x: auto; }
+
+/* Evidence appendix */
+#appendix-evidence { border-top: 1px solid var(--line); margin-top: 3.5rem; padding-top: 1rem; color: var(--muted); font-size: .92em; }
+#appendix-evidence h2 { border: 0; padding: 0; font-size: 1.1rem; }
+#appendix-evidence ul { padding-left: 1.1rem; }
+#appendix-evidence li { margin: .5rem 0; line-height: 1.55; }
+#appendix-evidence a { overflow-wrap: anywhere; word-break: break-word; }  /* long arXiv URLs never overflow on mobile */
+
+/* Smooth in-page jumps to appendix entries */
+html { scroll-behavior: smooth; }
+:target { background: color-mix(in srgb, var(--link) 14%, transparent); border-radius: 4px; }
 </style>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
