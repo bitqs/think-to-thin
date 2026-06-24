@@ -4,7 +4,7 @@ status: canonical
 grade: C
 sources:
   - "[[raw/Think to Thin/你一定低估了写作的效用.md]] — 人往往高估当下需求的效用，低估将来需求的效用；写作长期效用同理"
-  - "(综合) 行为经济学折现偏差文献：人们对近期痛苦的权重系统性高于远期收益，此为双曲折现(hyperbolic discounting)的标准发现"
+  - "行为经济学折现偏差文献：人们对近期痛苦的权重系统性高于远期收益，此为双曲折现(hyperbolic discounting)的标准发现"
 authored_by: researcher
 checked_by: fact-checker
 approved_by: human:bitqs
